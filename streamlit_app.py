@@ -398,7 +398,7 @@ def show_eeg_analysis_page():
                     if y_pred.argmax() == 1:
                         target_event_indices.append(idx)
             group_size = len(target_event_indices) // 6 + 1
-            subsets = split_event_indices(target_event_indices)
+            subsets = split_event_indices(target_event_indices, group_size)
             all_results = {}
             for name, indices in subsets.items():
                 results = get_flashing_characters_batch(df, indices)
